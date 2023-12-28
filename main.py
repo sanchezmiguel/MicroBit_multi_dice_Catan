@@ -6,12 +6,14 @@ def on_button_pressed_a():
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def on_gesture_shake():
-    global dice1, dice2
-    dice1 = randint(1, 6)
-    dice2 = randint(1, 6)
+    roll_dice()
     displayResult()
 input.on_gesture(Gesture.SHAKE, on_gesture_shake)
 
+def roll_dice():
+    global dice1, dice2
+    dice1 = randint(1, 6)
+    dice2 = randint(1, 6)
 def displayResult():
     if dice1 > 0 and dice2 > 0:
         basic.show_number(dice1)

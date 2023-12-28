@@ -1,14 +1,6 @@
 let dice1 = 0
 let dice2 = 0
-input.onButtonPressed(Button.A, function () {
-    displayResult()
-})
-input.onGesture(Gesture.Shake, function () {
-    dice1 = randint(1, 6)
-    dice2 = randint(1, 6)
-    displayResult()
-})
-function displayResult () {
+function display_result () {
     if (dice1 > 0 && dice2 > 0) {
         basic.showNumber(dice1)
         basic.pause(300)
@@ -21,4 +13,15 @@ function displayResult () {
             basic.showIcon(IconNames.Ghost)
         }
     }
+}
+input.onButtonPressed(Button.A, function () {
+    display_result()
+})
+input.onGesture(Gesture.Shake, function () {
+    roll_dice()
+    display_result()
+})
+function roll_dice () {
+    dice1 = randint(1, 6)
+    dice2 = randint(1, 6)
 }
