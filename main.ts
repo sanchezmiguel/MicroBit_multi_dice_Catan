@@ -1,8 +1,14 @@
 let dice1 = 0
 let dice2 = 0
+input.onButtonPressed(Button.A, function () {
+    displayResult()
+})
 input.onGesture(Gesture.Shake, function () {
     dice1 = randint(1, 6)
     dice2 = randint(1, 6)
+    displayResult()
+})
+function displayResult () {
     basic.showNumber(dice1)
     basic.pause(300)
     basic.showString("+")
@@ -13,4 +19,4 @@ input.onGesture(Gesture.Shake, function () {
     if (dice1 + dice2 == 7) {
         basic.showIcon(IconNames.Ghost)
     }
-})
+}
